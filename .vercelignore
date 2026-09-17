@@ -1,0 +1,5 @@
+data/
+apify/
+*.py
+*.xlsx
+bangladesh-pet-directory.html

@@ -1,0 +1,15 @@
+Phase 1: 132 searches, at most 1113 places, at most $4.45
+Credit left: $4.99. Spending cap for this run: $4.89
+Starting run: 126 searches x up to 8 places (cap $4.89)
+  RUNNING  charged so far $0.07
+  RUNNING  charged so far $0.30
+  RUNNING  charged so far $0.93
+  RUNNING  charged so far $1.63
+  RUNNING  charged so far $2.30
+  RUNNING  charged so far $2.56
+  RUNNING  charged so far $2.73
+  RUNNING  charged so far $2.76
+  RUNNING  charged so far $2.82
+  RUNNING  charged so far $2.87
+  RUNNING  charged so far $2.95
+  RUNNING  charged so far $3.11

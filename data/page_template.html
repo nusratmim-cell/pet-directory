@@ -1,0 +1,488 @@
+<title>Bangladesh Pet Business Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#F9F8F5; --paper:#FFFFFF; --sunken:#F1EFEA;
+  --ink:#1A1D26; --ink-2:#4B5060; --ink-3:#7C8090;
+  --line:#E3E0D8; --line-2:#EEECE6;
+  --accent:#1F6A64; --accent-soft:#E2EFEC; --accent-line:#B9D6D1;
+  --c-shop:#1F6A64; --c-vet:#3F5AA8; --c-hotel:#A2621B; --c-groom:#8A3F86; --c-other:#9A9DA8; --c-gov:#5B8A9C;
+  --warn:#9A6A06; --warn-bg:#FAEFD3; --warn-line:#EFD9A3;
+  --red:#B8304B; --red-bg:#FAE3E8; --green:#2C7A4B; --green-bg:#E3F1E8;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:20px;padding-block:28px 64px;display:flex;flex-direction:column;gap:26px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--ink)}
+h1{font-size:clamp(28px,4.2vw,40px);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:22px;line-height:1.2}
+h3{font-size:17px;line-height:1.25}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+header{display:flex;flex-direction:column;gap:10px}
+header p{color:var(--ink-2);max-width:72ch}
+.note{background:var(--warn-bg);color:#5E4204;border:1px solid var(--warn-line);border-radius:8px;padding:11px 14px;font-size:14px;max-width:84ch}
+.note b{color:var(--warn)}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--ground);z-index:5;padding-top:6px}
+.tab{font:inherit;font-weight:500;font-size:15px;color:var(--ink-2);background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;cursor:pointer;white-space:nowrap;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.tab:hover{color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.tab .badge{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:6px}
+.panel{display:flex;flex-direction:column;gap:28px}
+
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+.sub{color:var(--ink-3);font-size:13px}
+
+/* stats */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tile{background:var(--paper);padding:15px 17px;display:flex;flex-direction:column;gap:4px}
+.tile .n{font-family:var(--mono);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.15}
+.tile .l{font-size:13px;color:var(--ink-2)}
+.tile .s{font-size:12px;color:var(--ink-3)}
+.tile .s a{color:var(--ink-3)}
+.tile.hi{background:var(--accent-soft)}
+.tile.hi .n{color:var(--accent)}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.hbar{display:grid;grid-template-columns:minmax(90px,130px) 1fr 56px;gap:10px;align-items:center;font-size:14px}
+.hbar .track{height:12px;background:var(--sunken);border-radius:3px;overflow:hidden;display:flex}
+.hbar .track i{display:block;height:100%}
+.hbar .v{font-family:var(--mono);font-size:13px;text-align:right;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.takeaways{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.takeaways li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:14.5px;color:var(--ink)}
+.takeaways li .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:600;border-radius:4px;padding:2px 7px;margin-top:2px;white-space:nowrap}
+.k.fact{background:var(--sunken);color:var(--ink-2)}
+.k.read{background:var(--accent-soft);color:#17504B}
+.k.risk{background:var(--warn-bg);color:var(--warn)}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls input[type=search],.controls select{font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-width:0}
+.controls input[type=search]{flex:1 1 220px}
+.controls select{flex:0 1 175px}
+.check{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.check input{accent-color:var(--accent);width:16px;height:16px}
+input:focus-visible,select:focus-visible,.chip:focus-visible,.reset:focus-visible,th button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--paper);color:var(--ink-2);border-radius:999px;padding:5px 12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .c{font-family:var(--mono);font-size:12px;opacity:.7}
+.reset{font:inherit;font-size:13px;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:4px}
+.count{font-size:13px;color:var(--ink-2)}
+.count b{font-family:var(--mono);color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:2px;flex:none;display:inline-block}
+
+/* tables */
+.scroll{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line-2);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600;background:var(--sunken);white-space:nowrap;position:sticky;top:0;z-index:1}
+th button{font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button[data-dir]::after{content:attr(data-dir);color:var(--accent)}
+.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+th.num{text-align:right}
+td.zero{color:#C4C1B8}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#FCFBF8}
+.dist-scroll{max-height:640px}
+.dir-scroll{max-height:720px}
+.pill{display:inline-block;font-size:12px;border-radius:4px;padding:1px 7px;margin:0 4px 3px 0;white-space:nowrap;font-weight:500}
+.stage{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;white-space:nowrap;border-radius:4px;padding:2px 8px}
+.st-hub{background:var(--accent-soft);color:#17504B}
+.st-active{background:#E6EAF6;color:#2E4481}
+.st-early{background:var(--warn-bg);color:var(--warn)}
+.st-none{background:var(--red-bg);color:var(--red)}
+.mini{display:flex;height:8px;width:90px;background:var(--sunken);border-radius:2px;overflow:hidden;margin-top:5px}
+.mini i{display:block;height:100%}
+.muted{color:var(--ink-3)}
+td.name{font-weight:600;min-width:190px}
+td.name small{display:block;font-weight:400;color:var(--ink-3);font-size:12px;margin-top:2px}
+td.addr{color:var(--ink-2);min-width:220px;max-width:330px}
+td.phone{font-family:var(--mono);font-size:13px;white-space:nowrap}
+.links{display:flex;gap:8px;flex-wrap:wrap}
+.links a{color:var(--accent);font-size:13px;text-decoration:none;border-bottom:1px solid var(--accent-line)}
+.links a:hover{border-bottom-color:var(--accent)}
+.src{font-size:12px;color:var(--ink-3)}
+.empty{padding:30px;text-align:center;color:var(--ink-3)}
+.hrs{font-family:var(--body);font-size:12px;color:var(--ink-2);margin-top:4px;white-space:normal;min-width:150px}
+.hrs summary{cursor:pointer;color:var(--accent)}
+
+/* players */
+.players{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+.player{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 16px;display:flex;flex-direction:column;gap:8px}
+.player .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.player .seg{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3);font-weight:600;white-space:nowrap}
+.player p{font-size:14px;color:var(--ink-2)}
+.facts{display:flex;flex-direction:column;gap:4px;margin:0;padding:0;list-style:none;font-size:13.5px}
+.facts li{display:grid;grid-template-columns:78px 1fr;gap:8px}
+.facts li span:first-child{color:var(--ink-3)}
+.claim{font-size:11px;font-weight:600;color:var(--warn);background:var(--warn-bg);border-radius:3px;padding:0 5px;margin-left:4px;white-space:nowrap}
+.player .foot{font-size:12.5px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line-2);padding-top:8px}
+.player .foot a{color:var(--ink-3)}
+
+footer{font-size:13px;color:var(--ink-3);display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:18px}
+footer a{color:var(--ink-2)}
+@media (max-width:560px){
+  .controls select{flex:1 1 45%}
+  .hbar{grid-template-columns:86px 1fr 48px}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Bangladesh pet market · 64 districts · compiled 17 Sep 2026</span>
+    <h1>Pet shops, vets, pet hotels &amp; pet food across Bangladesh</h1>
+    <p>A starting map for expansion: the market's size, what's known in each of the 64 districts, the biggest companies, and a searchable list of every business collected.</p>
+    <div class="note"><b>Read counts as "known", not "total".</b> This list combines Google Maps (when collected), Facebook business pages (via the free Overture Maps dataset), Posha Ghor, OpenStreetMap and Chonk's list of shops that sell its food, with duplicates removed. Reports estimate 4,000+ pet shops nationwide, and many small shops have no online presence, so check a district locally before deciding.</div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="t-overview" aria-controls="p-overview" aria-selected="true">Market overview</button>
+    <button class="tab" role="tab" id="t-districts" aria-controls="p-districts" aria-selected="false">64 districts<span class="badge">64</span></button>
+    <button class="tab" role="tab" id="t-players" aria-controls="p-players" aria-selected="false">Big players<span class="badge" id="b-players"></span></button>
+    <button class="tab" role="tab" id="t-directory" aria-controls="p-directory" aria-selected="false">Directory<span class="badge" id="b-dir"></span></button>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <div class="panel" role="tabpanel" id="p-overview" aria-labelledby="t-overview">
+    <section>
+      <div class="sec-head"><h2>Market size</h2><span class="sub">From published reports; each figure links to its source</span></div>
+      <div class="tiles">
+        <div class="tile hi"><span class="n">৳236 cr</span><span class="l">Pet market per year, growing ~13%</span><span class="s"><a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">Nationwide survey</a></span></div>
+        <div class="tile"><span class="n">4,000+</span><span class="l">Pet shops nationwide</span><span class="s"><a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News</a></span></div>
+        <div class="tile"><span class="n">225+</span><span class="l">Pet clinics, mostly private and new</span><span class="s"><a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News</a></span></div>
+        <div class="tile"><span class="n">90%</span><span class="l">Of pets are cats</span><span class="s"><a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">Nationwide survey</a></span></div>
+        <div class="tile"><span class="n">৳500 cr</span><span class="l">Cat food market, ৳400 cr of it imported</span><span class="s"><a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News</a></span></div>
+        <div class="tile"><span class="n">৳30 cr+</span><span class="l">Yearly turnover of Katabon pet market alone (2022)</span><span class="s"><a href="https://www.thedailystar.net/opinion/views/news/are-you-looking-pet-or-accessory-3408091" target="_blank" rel="noopener">The Daily Star</a></span></div>
+      </div>
+    </section>
+
+    <div class="two">
+      <section class="box">
+        <h3>What people spend on</h3>
+        <div id="spend"></div>
+        <span class="sub">Share of pet market spending. Source: <a href="https://tob.news/a-new-economy-takes-shape-around-pets-in-bangladesh/" target="_blank" rel="noopener">TOB News</a>, <a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">survey</a></span>
+      </section>
+      <section class="box">
+        <h3>Where cat food is imported from</h3>
+        <div id="imports"></div>
+        <span class="sub">Tonnes, 2024–25 (32,156 t total). Source: <a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News</a></span>
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="box">
+        <h3>Known businesses by division</h3>
+        <div id="divbars"></div>
+        <div class="chips" id="legend1"></div>
+      </section>
+      <section class="box">
+        <h3>What this means for expansion</h3>
+        <ul class="takeaways" id="takeaways"></ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- DISTRICTS -->
+  <div class="panel" role="tabpanel" id="p-districts" aria-labelledby="t-districts" hidden>
+    <section>
+      <div class="sec-head"><h2>All 64 districts</h2><span class="count" id="d-count"></span></div>
+      <p class="sub" style="max-width:90ch">Population is from the 2022 census. Government vet hospitals are shown in their own column but not counted in <b>Known</b>, stage or people per business, because every district has them. <b>People per known business</b> is population ÷ known private listings; a higher number means fewer known businesses for the population. <b>Stage:</b> Hub = 50+ known, Active = 5–49, Early = 1–4, None known = 0. Click a column header to sort.</p>
+      <div class="controls">
+        <input id="d-q" type="search" placeholder="Search district" aria-label="Search district">
+        <select id="d-div" aria-label="Division"></select>
+        <select id="d-stage" aria-label="Stage">
+          <option value="">All stages</option><option value="hub">Hub (50+)</option><option value="active">Active (5–49)</option><option value="early">Early (1–4)</option><option value="none">None known (0)</option>
+        </select>
+        <select id="d-pop" aria-label="Minimum population">
+          <option value="0">Any population</option><option value="1500000">1.5M+ people</option><option value="2500000">2.5M+ people</option><option value="3500000">3.5M+ people</option>
+        </select>
+        <label class="check"><input type="checkbox" id="d-novet"> No known private vet</label>
+        <button class="reset" id="d-reset" type="button">Clear filters</button>
+      </div>
+      <div class="scroll dist-scroll"><table id="d-table"></table></div>
+    </section>
+  </div>
+
+  <!-- PLAYERS -->
+  <div class="panel" role="tabpanel" id="p-players" aria-labelledby="t-players" hidden>
+    <section>
+      <div class="sec-head"><h2>Big players &amp; key names</h2><span class="count" id="p-count"></span></div>
+      <p class="sub" style="max-width:90ch">No revenue or market-share figures are published for Bangladesh's pet companies, so "big" here means biggest reach based on public information. Figures marked <span class="claim">self-reported</span> come from the company's own website.</p>
+      <div class="controls">
+        <input id="p-q" type="search" placeholder="Search companies" aria-label="Search companies">
+      </div>
+      <div class="chips" id="p-chips" role="group" aria-label="Segment"></div>
+      <div class="players" id="players"></div>
+    </section>
+    <section id="top-reviewed" hidden>
+      <div class="sec-head"><h2>Most-reviewed on Google Maps</h2><span class="sub">Review count is a rough stand-in for customer traffic</span></div>
+      <div class="controls"><select id="tr-cat" aria-label="Category"></select><select id="tr-div" aria-label="Division"></select></div>
+      <div class="scroll"><table id="tr-table"></table></div>
+    </section>
+  </div>
+
+  <!-- DIRECTORY -->
+  <div class="panel" role="tabpanel" id="p-directory" aria-labelledby="t-directory" hidden>
+    <section>
+      <div class="sec-head"><h2>Directory</h2><span class="count" id="count"></span></div>
+      <div class="controls">
+        <input id="q" type="search" placeholder="Search name, area, address, phone" aria-label="Search listings">
+        <select id="div" aria-label="Division"></select>
+        <select id="dist" aria-label="District"></select>
+        <select id="src" aria-label="Source"></select>
+        <select id="sort" aria-label="Sort">
+          <option value="loc">Sort: division, district</option><option value="name">Sort: name A–Z</option><option value="complete">Sort: most contact details</option><option value="reviews">Sort: most Google reviews</option><option value="rating">Sort: highest Google rating</option>
+        </select>
+      </div>
+      <div class="controls">
+        <label class="check"><input type="checkbox" id="f-phone"> Has phone</label>
+        <label class="check"><input type="checkbox" id="f-online"> Has Facebook or website</label>
+        <label class="check"><input type="checkbox" id="f-map"> Has map link</label>
+        <label class="check"><input type="checkbox" id="f-multi"> Found in 2+ sources</label>
+        <label class="check"><input type="checkbox" id="f-rated"> Has Google rating</label>
+        <label class="check"><input type="checkbox" id="f-hours"> Has opening hours</label>
+        <label class="check" title="Overture gives each Facebook-sourced place a confidence score. Low scores are more likely closed or mislabeled."><input type="checkbox" id="f-conf"> Hide low-confidence Facebook places</label>
+        <button class="reset" id="reset" type="button">Clear filters</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Category"></div>
+      <div class="scroll dir-scroll">
+        <table>
+          <thead><tr><th>Business</th><th>Category</th><th>District</th><th>Address</th><th>Phone</th><th class="num">Google rating</th><th>Links</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>Listing sources (businesses found in each): <span id="srcCounts"></span>. Facebook pages come from <a href="https://overturemaps.org/" target="_blank" rel="noopener">Overture Maps</a> (release 2026-08-19); Google Maps data is collected with Apify's Google Maps Scraper. Merged when the name and district match or the phone number matches. Districts come from map coordinates using <a href="https://www.geoboundaries.org/" target="_blank" rel="noopener">geoBoundaries</a>. District population: 2022 census via <a href="https://en.wikipedia.org/wiki/Districts_of_Bangladesh" target="_blank" rel="noopener">Wikipedia</a>.</span>
+    <span>Not yet included: Google Maps-only businesses and shops with no online presence. Adding them would raise the counts, mostly in Dhaka and the division cities.</span>
+  </footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const CATS = [
+  {key:"shop", label:"Pet shop / food", color:"var(--c-shop)", bg:"#E2EFEC", fg:"#17504B"},
+  {key:"vet", label:"Pet hospital / vet", color:"var(--c-vet)", bg:"#E6EAF6", fg:"#2E4481"},
+  {key:"hotel", label:"Pet hotel / boarding", color:"var(--c-hotel)", bg:"#F7EBDC", fg:"#7A4812"},
+  {key:"groom", label:"Grooming", color:"var(--c-groom)", bg:"#F3E5F2", fg:"#6B2F68"},
+  {key:"other", label:"Other (rescue, courier…)", color:"var(--c-other)", bg:"#EEECE6", fg:"#4B5060"},
+  {key:"gov", label:"Govt vet hospital", color:"var(--c-gov)", bg:"#E4EEF3", fg:"#285566"}
+];
+const catOf = k => CATS.find(c => c.key === k);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString("en-US");
+const mil = n => (n/1e6).toFixed(n >= 1e7 ? 1 : 2) + "M";
+const rows = DATA.rows.map(r => ({...r, district: r.district || "", division: r.division || ""}));
+const dists = DATA.districts.map(d => ({...d, perBiz: d.total ? Math.round(d.pop / d.total) : null,
+  stage: d.total >= 50 ? "hub" : d.total >= 5 ? "active" : d.total >= 1 ? "early" : "none"}));
+const STAGES = {hub:["Hub","st-hub"], active:["Active","st-active"], early:["Early","st-early"], none:["None known","st-none"]};
+const DIVS = [...new Set(dists.map(d => d.division))];
+const totalPop = dists.reduce((s,d) => s + d.pop, 0);
+
+/* ---------- tabs ---------- */
+const tabs = [...document.querySelectorAll(".tab")];
+function openTab(id){
+  tabs.forEach(t => { const on = t.id === id; t.setAttribute("aria-selected", on); $(t.getAttribute("aria-controls")).hidden = !on; });
+  try { localStorage.setItem("pet-tab", id); } catch(e) {}
+}
+tabs.forEach(t => t.onclick = () => openTab(t.id));
+try { const saved = localStorage.getItem("pet-tab"); if (saved && $(saved)) openTab(saved); } catch(e) {}
+
+/* ---------- overview ---------- */
+function hbars(el, items, max, unit){
+  $(el).innerHTML = items.map(([label, v, color]) =>
+    `<div class="hbar"><span>${esc(label)}</span><span class="track"><i style="width:${v/max*100}%;background:${color||"var(--accent)"}"></i></span><span class="v">${unit(v)}</span></div>`).join("");
+  $(el).style.cssText = "display:flex;flex-direction:column;gap:9px";
+}
+hbars("spend", [["Pet food",57],["Medicines",19],["Cat litter",16],["Vaccines",7],["Other",1]], 57, v => v + "%");
+hbars("imports", [["China",17738],["Thailand",7418],["Turkey",6740],["Others",260]], 17738, v => fmt(v));
+
+const divAgg = DIVS.map(dv => { const ds = dists.filter(d => d.division === dv);
+  return {dv, total: ds.reduce((s,d)=>s+d.total,0), pop: ds.reduce((s,d)=>s+d.pop,0), ...Object.fromEntries(CATS.map(c => [c.key, ds.reduce((s,d)=>s+d[c.key],0)]))}; })
+  .sort((a,b) => b.total - a.total);
+const maxDiv = Math.max(...divAgg.map(d => CATS.reduce((s,c)=>s+d[c.key],0)));
+$("divbars").style.cssText = "display:flex;flex-direction:column;gap:9px";
+$("divbars").innerHTML = divAgg.map(d => `<div class="hbar"><span>${esc(d.dv)}</span><span class="track">${CATS.map(c => d[c.key] ? `<i title="${c.label}: ${d[c.key]}" style="width:${d[c.key]/maxDiv*100}%;background:${c.color}"></i>` : "").join("")}</span><span class="v">${d.total}</span></div>`).join("");
+$("legend1").innerHTML = CATS.map(c => `<span class="check" style="cursor:default;font-size:12.5px"><i class="dot" style="background:${c.color}"></i>${c.label}</span>`).join("");
+
+const dhaka = dists.find(d => d.district === "Dhaka");
+const privateCount = rows.filter(r => !(r.cats.length === 1 && r.cats[0] === "gov")).length;
+const covered = dists.filter(d => d.total > 0).length;
+const bigGaps = dists.filter(d => d.pop >= 2000000).sort((a,b)=>(b.perBiz ?? Infinity)-(a.perBiz ?? Infinity));
+const risers = dists.filter(d => d.district !== "Dhaka").sort((a,b)=>b.total-a.total).slice(0,5);
+const noVet = dists.filter(d => d.vet === 0).length;
+const knownVets = rows.filter(r => r.cats.includes("vet")).length;
+const knownHotels = rows.filter(r => r.cats.includes("hotel")).length;
+$("takeaways").innerHTML = [
+  ["fact", `Dhaka district has <b>${Math.round(dhaka.total/privateCount*100)}%</b> of known private businesses (${dhaka.total} of ${fmt(privateCount)}) but only ${Math.round(dhaka.pop/totalPop*100)}% of the population.`],
+  ["fact", `Known businesses in <b>${covered} of 64</b> districts. After Dhaka, the most are in ${risers.map(d => `${esc(d.district)} (${d.total})`).join(", ")}.`],
+  ["read", `This is a cat-food business first: 90% of pets are cats and food is 57% of spending. A food and litter supply chain is the core, with vet care and boarding added on top.`],
+  ["read", `Every upazila has a government vet hospital (${rows.filter(r => r.cats.includes("gov")).length} offices listed), but they focus on livestock. Private pet vet care is thin: ${noVet} districts have no known private vet, and only ${knownHotels} pet hotels or boarding places are known nationally. Both look like gaps.`],
+  ["read", `Big districts (2M+ people) with the fewest known businesses per person: ${bigGaps.slice(0,6).map(d => `${esc(d.district)} (${d.total} for ${mil(d.pop)})`).join(", ")}. They're worth a local check.`],
+  ["risk", `About ৳400 of every ৳500 crore of cat food is imported, so prices follow the exchange rate. Local makers like Chonk and Oskies are starting to reduce that dependence.`]
+].map(([k, t]) => `<li><span class="k ${k}">${k === "fact" ? "Fact" : k === "read" ? "Insight" : "Risk"}</span><span>${t}</span></li>`).join("");
+
+/* ---------- districts ---------- */
+const dState = {q:"", div:"", stage:"", pop:0, novet:false, sort:"total", dir:-1};
+const D_COLS = [
+  ["district","District",false],["division","Division",false],["pop","Population",true],["total","Known",true],
+  ["shop","Shops / food",true],["vet","Private vets",true],["hotel","Hotels",true],["groom","Grooming",true],["gov","Govt vet",true],["perBiz","People per known business",true],["stage","Stage",false]
+];
+$("d-div").innerHTML = `<option value="">All divisions</option>` + DIVS.map(d => `<option>${esc(d)}</option>`).join("");
+function renderDistricts(){
+  let list = dists.filter(d => (!dState.q || d.district.toLowerCase().includes(dState.q)) && (!dState.div || d.division === dState.div) &&
+    (!dState.stage || d.stage === dState.stage) && d.pop >= dState.pop && (!dState.novet || d.vet === 0));
+  const k = dState.sort, order = {hub:3,active:2,early:1,none:0};
+  list.sort((a,b) => {
+    let x = a[k], y = b[k];
+    if (k === "stage") { x = order[x]; y = order[y]; }
+    if (k === "perBiz") { x = x ?? Infinity; y = y ?? Infinity; }
+    if (typeof x === "string") return x.localeCompare(y) * dState.dir;
+    return ((x > y) - (x < y)) * dState.dir || a.district.localeCompare(b.district);
+  });
+  $("d-count").innerHTML = `Showing <b>${list.length}</b> of 64 · ${fmt(list.reduce((s,d)=>s+d.total,0))} known businesses · ${mil(list.reduce((s,d)=>s+d.pop,0))} people`;
+  const maxT = Math.max(1, ...list.filter(d => d.district !== "Dhaka").map(d => d.total));
+  const head = `<thead><tr>${D_COLS.map(([key,label,num]) => `<th class="${num?"num":""}"><button type="button" data-k="${key}" ${dState.sort===key?`data-dir="${dState.dir<0?" ↓":" ↑"}"`:""}>${label}</button></th>`).join("")}</tr></thead>`;
+  const cell = n => `<td class="num${n?"":" zero"}">${n}</td>`;
+  const body = list.length ? list.map(d => {
+    const [sl, sc] = STAGES[d.stage];
+    const mini = CATS.map(c => d[c.key] ? `<i style="width:${Math.min(1, d[c.key]/maxT)*100}%;background:${c.color}"></i>` : "").join("");
+    return `<tr><td class="name">${esc(d.district)}${d.total ? `<span class="mini">${mini}</span>` : ""}</td><td class="muted">${esc(d.division)}</td>
+      <td class="num">${mil(d.pop)}</td><td class="num"><b>${d.total}</b></td>${cell(d.shop)}${cell(d.vet)}${cell(d.hotel)}${cell(d.groom)}${cell(d.gov)}
+      <td class="num">${d.perBiz ? fmt(d.perBiz) : '<span class="muted">—</span>'}</td><td><span class="stage ${sc}">${sl}</span></td></tr>`;
+  }).join("") : `<tr><td colspan="11" class="empty">No districts match these filters.</td></tr>`;
+  $("d-table").innerHTML = head + `<tbody>${body}</tbody>`;
+  $("d-table").querySelectorAll("th button").forEach(b => b.onclick = () => {
+    if (dState.sort === b.dataset.k) dState.dir *= -1; else { dState.sort = b.dataset.k; dState.dir = ["district","division"].includes(b.dataset.k) ? 1 : -1; }
+    renderDistricts();
+  });
+}
+$("d-q").oninput = e => { dState.q = e.target.value.trim().toLowerCase(); renderDistricts(); };
+$("d-div").onchange = e => { dState.div = e.target.value; renderDistricts(); };
+$("d-stage").onchange = e => { dState.stage = e.target.value; renderDistricts(); };
+$("d-pop").onchange = e => { dState.pop = +e.target.value; renderDistricts(); };
+$("d-novet").onchange = e => { dState.novet = e.target.checked; renderDistricts(); };
+$("d-reset").onclick = () => { Object.assign(dState,{q:"",div:"",stage:"",pop:0,novet:false}); ["d-q","d-div","d-stage"].forEach(i => $(i).value=""); $("d-pop").value="0"; $("d-novet").checked=false; renderDistricts(); };
+renderDistricts();
+
+/* ---------- players ---------- */
+const PLAYERS = [
+  {seg:"Import & distribution", name:"3S Impex BD", what:"Pet food importer and wholesaler supplying pet shops.", facts:[["Since","2010",1],["Brands","50+ international brands, incl. Royal Canin, Hill's, Whiskas",1],["Reach","1,000+ retail partners in all 64 districts",1],["Base","Dhaka"]], src:[["3simpexbd.com","https://3simpexbd.com/"]]},
+  {seg:"Local manufacturer", name:"Chonk", what:"Bangladesh's first locally made dry cat food (first batch 2024), about ৳332 per kg.", facts:[["Reach","350+ pet shops claimed; 245 listed in this directory across 47 districts",1],["Delivery","Free inside Dhaka City, ৳70 flat nationwide",1],["Base","Dhaka"]], src:[["Store list","https://chonkpetfood.com/retail-locations/"],["TBS News","https://www.tbsnews.net/features/panorama/chonk-local-innovation-cat-food-industry-1076186"]]},
+  {seg:"Local manufacturer", name:"Oskies Pet Food", what:"Local cat food brand licensed by the Department of Livestock Services.", facts:[["Status","Says it's the first government-approved cat food made in Bangladesh",1]], src:[["Facebook","https://www.facebook.com/oskiesbd/"]]},
+  {seg:"Leading brands", name:"Imported food brands on shelves", what:"The brands most often stocked, from budget to premium.", facts:[["Budget","Whiskas, Me-O, SmartHeart"],["Mid-range","Reflex, Drools, Kaniva"],["Premium","Royal Canin"],["Origin","China 17,738 t, Thailand 7,418 t, Turkey 6,740 t of cat food (2024–25)"]], src:[["TBS News","https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861"],["PetFeedy","https://petfeedy.com/pet-food-in-bangladesh/"]]},
+  {seg:"Online retail", name:"Pet Zone BD", what:"Online pet shop with a pet pharmacy, also sells livestock products.", facts:[["Range","60+ brands incl. Royal Canin, Purina, Hill's Prescription Diet",1],["Hotline","+880 1726-253747"]], src:[["petzonebd.com","https://petzonebd.com/"]]},
+  {seg:"Online retail", name:"Pet Bangla", what:"Online pet supplies store based in Dhaka.", facts:[["Claim","First and largest online pet supplies store in Bangladesh",1]], src:[["Facebook","https://www.facebook.com/PetBangla/"]]},
+  {seg:"Online retail", name:"Pet.com.bd", what:"Online pet store with a vendor program and a vet finder.", facts:[["Delivery","Same-day inside Dhaka",1]], src:[["pet.com.bd","https://www.pet.com.bd/"]]},
+  {seg:"Online retail", name:"Aquisan Bangladesh", what:"Online pet shop with a physical store; covers birds, cats, dogs, rabbits.", facts:[["Claim","Largest online pet shop in Bangladesh",1],["Store","South Banasree, Dhaka"]], src:[["aquisanbd.com","https://aquisanbd.com/"]]},
+  {seg:"Online retail", name:"Katabon Online", what:"Online store run by a Katabon-market seller.", facts:[["Base","Katabon, Dhaka"]], src:[["katabononline.com","https://katabononline.com/"]]},
+  {seg:"Supermarkets", name:"Shwapno", what:"Largest supermarket chain, with a pet care section online and in stores.", facts:[["Online","Dhaka, Chattogram, Cumilla, Sylhet"]], src:[["shwapno.com","https://www.shwapno.com/pet-care"]]},
+  {seg:"Market hubs", name:"Katabon Pet Market", what:"Dhaka's best-known cluster of pet, bird and aquarium shops.", facts:[["Turnover","৳30 crore+ per year (2022, per the Aqua and Pet Association)"],["Nearby","Mirpur-1 Kobutorer Bazar is the other big trading cluster"]], src:[["The Daily Star","https://www.thedailystar.net/opinion/views/news/are-you-looking-pet-or-accessory-3408091"],["TOB News","https://tob.news/a-new-economy-takes-shape-around-pets-in-bangladesh/"]]},
+  {seg:"Vet care", name:"Central Veterinary Hospital", what:"The largest government-run animal hospital in Bangladesh.", facts:[["Location","48 Kazi Alauddin Road, Old Dhaka"],["Phone","01745-137090"]], src:[["Aquisan list","https://aquisanbd.com/top-20-veterinary-pet-clinic-in-dhaka-bangladesh/"]]},
+  {seg:"Vet care", name:"Government vet hospitals (DLS)", what:"The Department of Livestock Services runs an office and vet hospital in every upazila, focused mainly on livestock.", facts:[["Reach","Every upazila in all 64 districts"],["For you","Existing vets in every district who may take referrals or partner"]], src:[["Wikipedia","https://en.wikipedia.org/wiki/Department_of_Livestock_Services"]]},
+  {seg:"Vet care", name:"CVASU Teaching Hospital", what:"Chattogram Veterinary and Animal Sciences University; the main vet school and referral point outside Dhaka.", facts:[["Location","Zakir Hossain Rd, Chattogram"],["Phone","01314-300655"]], src:[["Wikipedia","https://en.wikipedia.org/wiki/Chittagong_Veterinary_and_Animal_Sciences_University"]]},
+  {seg:"Vet care", name:"Precise Petlab Diagnostics & Hospital", what:"Private pet hospital with diagnostic lab.", facts:[["Location","House 15, Road 24, Gulshan 2, Dhaka"],["Phone","01800-000203"]], src:[["precisepetlab.com","https://precisepetlab.com/"],["Posha Ghor","https://poshaghor.com/business/precise-petlab-diagnostics-and-hospital-ltd/"]]},
+  {seg:"Vet care", name:"A-Z Pet Animal Solution", what:"Private pet clinic with more than one branch; vets do home visits.", facts:[["Branches","Gulshan-2 (DCC Super Market) and Khilkhet"],["Phone","01912-013615"]], src:[["Pet.com.bd vet finder","https://www.pet.com.bd/vet-finder/"]]},
+  {seg:"Vet care", name:"LD Veterinary Hospital", what:"Private vet hospital open 24/7.", facts:[["Location","Uttara, Dhaka"]], src:[["Aquisan list","https://aquisanbd.com/top-20-veterinary-pet-clinic-in-dhaka-bangladesh/"]]},
+  {seg:"Pet hotels & boarding", name:"Furryghor", what:"Bangladesh's first pet hotel, opened March 2022.", facts:[["Branches","Mirpur (Zoo Road) and Gulshan"],["Size","Mirpur: 1,800 sq ft, 3 dog rooms and 20 cat cabins"],["Price","Cat boarding in Dhaka runs about ৳400/day or ৳7,500/month"]], src:[["furryghor.com","https://furryghor.com/"],["Australia Awards","https://australiaawardsbangladesh.org/alumna-offering-an-urban-amenity-to-pet-owners/"]]},
+  {seg:"Pet hotels & boarding", name:"PetBacker", what:"App that lists pet sitters, home boarding and daycare.", facts:[["Reach","Dhaka Division listings"]], src:[["petbacker.com","https://www.petbacker.com/d/dhaka-division--bangladesh"]]},
+  {seg:"Directories", name:"Posha Ghor", what:"Directory of vets, pet shops, groomers and welfare groups.", facts:[["Size","160 listings, mostly Dhaka"]], src:[["poshaghor.com","https://poshaghor.com/"]]}
+];
+const SEGS = [...new Set(PLAYERS.map(p => p.seg))];
+const pState = {q:"", seg:""};
+$("b-players").textContent = PLAYERS.length;
+function renderPlayers(){
+  $("p-chips").innerHTML = [["", "All", PLAYERS.length], ...SEGS.map(s => [s, s, PLAYERS.filter(p => p.seg === s).length])]
+    .map(([v,l,n]) => `<button type="button" class="chip" data-seg="${esc(v)}" aria-pressed="${pState.seg===v}">${esc(l)} <span class="c">${n}</span></button>`).join("");
+  $("p-chips").querySelectorAll(".chip").forEach(b => b.onclick = () => { pState.seg = b.dataset.seg; renderPlayers(); });
+  const list = PLAYERS.filter(p => (!pState.seg || p.seg === pState.seg) && (!pState.q || JSON.stringify(p).toLowerCase().includes(pState.q)));
+  $("p-count").innerHTML = `Showing <b>${list.length}</b> of ${PLAYERS.length}`;
+  $("players").innerHTML = list.length ? list.map(p => `<article class="player">
+    <div class="top"><h3>${esc(p.name)}</h3><span class="seg">${esc(p.seg)}</span></div>
+    <p>${esc(p.what)}</p>
+    <ul class="facts">${p.facts.map(([k,v,claim]) => `<li><span>${esc(k)}</span><span>${esc(v)}${claim ? '<span class="claim">self-reported</span>' : ""}</span></li>`).join("")}</ul>
+    <div class="foot">${p.src.map(([l,u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join("")}</div>
+  </article>`).join("") : `<p class="empty">No companies match.</p>`;
+}
+$("p-q").oninput = e => { pState.q = e.target.value.trim().toLowerCase(); renderPlayers(); };
+renderPlayers();
+function renderTop(){
+  const cat = $("tr-cat").value, dv = $("tr-div").value;
+  const list = rows.filter(r => r.reviews > 0 && (!cat || r.cats.includes(cat)) && (!dv || r.division === dv)).sort((a,b) => b.reviews - a.reviews).slice(0, 25);
+  $("tr-table").innerHTML = `<thead><tr><th class="num">#</th><th>Business</th><th>Category</th><th>District</th><th class="num">Rating</th><th class="num">Reviews</th><th>Phone</th></tr></thead><tbody>` +
+    (list.length ? list.map((r,i) => `<tr><td class="num muted">${i+1}</td><td class="name">${r.maps ? `<a href="${esc(r.maps)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}${r.subtype ? `<small>${esc(r.subtype)}</small>` : ""}</td><td>${r.cats.map(k => `<span class="pill" style="background:${catOf(k).bg};color:${catOf(k).fg}">${catOf(k).label}</span>`).join("")}</td><td>${esc(r.district)}</td><td class="num">${r.rating != null ? r.rating.toFixed(1) : "—"}</td><td class="num"><b>${fmt(r.reviews)}</b></td><td class="phone">${esc(r.phone) || "—"}</td></tr>`).join("") : `<tr><td colspan="7" class="empty">No reviewed businesses match.</td></tr>`) + `</tbody>`;
+}
+if (rows.some(r => r.reviews > 0)) {
+  $("top-reviewed").hidden = false;
+  $("tr-cat").innerHTML = `<option value="">All categories</option>` + CATS.map(c => `<option value="${c.key}">${c.label}</option>`).join("");
+  $("tr-div").innerHTML = `<option value="">All divisions</option>` + DIVS.map(d => `<option>${esc(d)}</option>`).join("");
+  $("tr-cat").onchange = renderTop; $("tr-div").onchange = renderTop; renderTop();
+}
+
+/* ---------- directory ---------- */
+const state = {q:"", div:"", dist:"", cat:"", src:"", sort:"loc", phone:false, online:false, map:false, multi:false, conf:false, rated:false, hours:false};
+const SOURCES = [...new Set(rows.flatMap(r => r.sources))];
+$("b-dir").textContent = rows.length;
+$("src").innerHTML = `<option value="">All sources</option>` + SOURCES.map(s => `<option>${esc(s)}</option>`).join("");
+function syncSelects(){
+  $("div").innerHTML = `<option value="">All divisions</option>` + DIVS.map(d => `<option ${state.div===d?"selected":""}>${esc(d)}</option>`).join("");
+  const ds = [...new Set(rows.filter(r => r.district && (!state.div || r.division === state.div)).map(r => r.district))].sort();
+  $("dist").innerHTML = `<option value="">All districts</option>` + ds.map(d => `<option ${state.dist===d?"selected":""}>${esc(d)}</option>`).join("");
+}
+const completeness = r => ["phone","address","maps","facebook","website","hours"].filter(f => r[f]).length;
+function link(href, text){ return href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>` : ""; }
+function render(){
+  const base = rows.filter(r =>
+    (!state.div || r.division === state.div) && (!state.dist || r.district === state.dist) &&
+    (!state.src || r.sources.includes(state.src)) && (!state.phone || r.phone) && (!state.online || r.facebook || r.website) &&
+    (!state.map || r.maps) && (!state.multi || r.sources.length > 1) && (!state.conf || r.conf === null || r.conf >= 0.5 || r.sources.length > 1) && (!state.rated || r.rating != null) && (!state.hours || r.hours) &&
+    (!state.q || [r.name,r.area,r.address,r.phone,r.district,r.subtype].join(" ").toLowerCase().includes(state.q)));
+  const list = base.filter(r => !state.cat || r.cats.includes(state.cat));
+  if (state.sort === "name") list.sort((a,b) => a.name.localeCompare(b.name));
+  else if (state.sort === "reviews") list.sort((a,b) => (b.reviews||0) - (a.reviews||0) || a.name.localeCompare(b.name));
+  else if (state.sort === "rating") list.sort((a,b) => (b.rating ?? -1) - (a.rating ?? -1) || (b.reviews||0) - (a.reviews||0));
+  else if (state.sort === "complete") list.sort((a,b) => completeness(b) - completeness(a) || a.name.localeCompare(b.name));
+  else list.sort((a,b) => (a.division||"zz").localeCompare(b.division||"zz") || (a.district||"zz").localeCompare(b.district||"zz") || a.name.localeCompare(b.name));
+  $("count").innerHTML = `Showing <b>${list.length}</b> of ${rows.length}`;
+  $("chips").innerHTML = `<button type="button" class="chip" data-cat="" aria-pressed="${state.cat===""}">All <span class="c">${base.length}</span></button>` +
+    CATS.map(c => `<button type="button" class="chip" data-cat="${c.key}" aria-pressed="${state.cat===c.key}"><i class="dot" style="background:${c.color}"></i>${c.label} <span class="c">${base.filter(r => r.cats.includes(c.key)).length}</span></button>`).join("");
+  $("chips").querySelectorAll(".chip").forEach(b => b.onclick = () => { state.cat = b.dataset.cat; render(); });
+  $("rows").innerHTML = list.length ? list.map(r => `<tr>
+    <td class="name">${esc(r.name)}${(r.subtype || r.area) ? `<small>${[r.subtype, r.area].filter(Boolean).map(esc).join(" · ")}</small>` : ""}</td>
+    <td>${r.cats.map(k => { const c = catOf(k); return `<span class="pill" style="background:${c.bg};color:${c.fg}">${c.label}</span>`; }).join("")}</td>
+    <td>${esc(r.district) || '<span class="muted">Unknown</span>'}<br><span class="muted">${esc(r.division)}</span></td>
+    <td class="addr">${esc(r.address) || '<span class="muted">—</span>'}</td>
+    <td class="phone">${esc(r.phone) || '<span class="muted">—</span>'}${r.hours ? `<details class="hrs"><summary>Hours</summary>${r.hours.split("; ").map(esc).join("<br>")}</details>` : ""}${r.temp_closed ? '<br><span class="stage st-early">Temporarily closed</span>' : ""}</td>
+    <td class="num">${r.rating != null ? `<b>${r.rating.toFixed(1)}</b> ★<br><span class="muted">${fmt(r.reviews||0)} reviews</span>` : '<span class="muted">—</span>'}</td>
+    <td><div class="links">${link(r.maps,"Map")}${link(r.facebook,"Facebook")}${link(r.website,"Website")}</div><span class="src">${r.sources.map(esc).join(" · ")}</span></td>
+  </tr>`).join("") : `<tr><td colspan="7" class="empty">No listings match these filters.</td></tr>`;
+}
+$("q").oninput = e => { state.q = e.target.value.trim().toLowerCase(); render(); };
+$("div").onchange = e => { state.div = e.target.value; state.dist = ""; syncSelects(); render(); };
+$("dist").onchange = e => { state.dist = e.target.value; render(); };
+$("src").onchange = e => { state.src = e.target.value; render(); };
+$("sort").onchange = e => { state.sort = e.target.value; render(); };
+[["f-phone","phone"],["f-online","online"],["f-map","map"],["f-multi","multi"],["f-conf","conf"],["f-rated","rated"],["f-hours","hours"]].forEach(([id,k]) => $(id).onchange = e => { state[k] = e.target.checked; render(); });
+$("reset").onclick = () => {
+  Object.assign(state,{q:"",div:"",dist:"",cat:"",src:"",sort:"loc",phone:false,online:false,map:false,multi:false,conf:false,rated:false,hours:false});
+  $("q").value = ""; $("src").value = ""; $("sort").value = "loc"; ["f-phone","f-online","f-map","f-multi","f-conf","f-rated","f-hours"].forEach(i => $(i).checked = false);
+  syncSelects(); render();
+};
+syncSelects(); render();
+$("srcCounts").textContent = Object.entries(DATA.meta.counts).map(([k,v]) => `${k} ${fmt(v)}`).join(" · ");
+</script>

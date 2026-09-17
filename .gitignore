@@ -1,0 +1,6 @@
+# Secrets (the Apify token lives in ~/.apify_token, never in this repo)
+.env*
+*.token
+__pycache__/
+*.pyc
+.vercel
