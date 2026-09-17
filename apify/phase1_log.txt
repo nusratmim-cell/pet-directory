@@ -13,3 +13,41 @@ Starting run: 126 searches x up to 8 places (cap $4.89)
   RUNNING  charged so far $2.87
   RUNNING  charged so far $2.95
   RUNNING  charged so far $3.11
+  RUNNING  charged so far $3.29
+  RUNNING  charged so far $3.33
+  RUNNING  charged so far $3.51
+  RUNNING  charged so far $3.54
+  RUNNING  charged so far $3.68
+  RUNNING  charged so far $3.78
+  RUNNING  charged so far $3.80
+  RUNNING  charged so far $3.80
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.81
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83

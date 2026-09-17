@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Market research for pet food and silage in Bangladesh: market size, competitors, licences, duties and where to sell.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+</head>
+<body>
+<title>Pet Food &amp; Silage Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#F9F8F5; --paper:#FFFFFF; --sunken:#F1EFEA;
+  --ink:#1A1D26; --ink-2:#4B5060; --ink-3:#7C8090;
+  --line:#E3E0D8; --line-2:#EEECE6;
+  --accent:#1F6A64; --accent-soft:#E2EFEC;
+  --silage:#6E7F1F; --silage-soft:#EEF2DC;
+  --warn:#9A6A06; --warn-bg:#FAEFD3; --warn-line:#EFD9A3;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:28px 72px;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--ink)}
+h1{font-size:clamp(28px,4.2vw,40px);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:25px;line-height:1.2}
+h3{font-size:17px;line-height:1.3}
+p{margin:0;max-width:72ch}
+a{color:var(--accent)}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+.back{font-size:14px;text-decoration:none}
+header{display:flex;flex-direction:column;gap:10px}
+header p{color:var(--ink-2)}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px}
+nav.toc a{font-size:13.5px;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:5px 12px}
+nav.toc a:hover{color:var(--ink);border-color:var(--ink-3)}
+section{display:flex;flex-direction:column;gap:16px;scroll-margin-top:12px}
+.lead{color:var(--ink-2)}
+.note{background:var(--warn-bg);color:#5E4204;border:1px solid var(--warn-line);border-radius:8px;padding:11px 14px;font-size:14px;max-width:84ch}
+.tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:600;border-radius:4px;padding:2px 7px;vertical-align:2px}
+.tag.pet{background:var(--accent-soft);color:#17504B}
+.tag.sil{background:var(--silage-soft);color:#4D5A12}
+.tag.both{background:var(--sunken);color:var(--ink-2)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tile{background:var(--paper);padding:15px 17px;display:flex;flex-direction:column;gap:3px}
+.tile .n{font-family:var(--mono);font-size:25px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.15}
+.tile .l{font-size:13.5px;color:var(--ink-2)}
+.tile .s{font-size:12px;color:var(--ink-3)}
+.tile.p .n{color:var(--accent)} .tile.g .n{color:var(--silage)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.box .sub{font-size:12.5px;color:var(--ink-3)}
+.bars{display:flex;flex-direction:column;gap:9px}
+.hbar{display:grid;grid-template-columns:minmax(96px,150px) 1fr 84px;gap:10px;align-items:center;font-size:14px}
+.hbar .track{height:12px;background:var(--sunken);border-radius:3px;overflow:hidden}
+.hbar .track i{display:block;height:100%}
+.hbar .v{font-family:var(--mono);font-size:13px;text-align:right;color:var(--ink-2);font-variant-numeric:tabular-nums}
+ul.points{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;max-width:84ch}
+ul.points li::marker{color:var(--ink-3)}
+.scroll{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line-2);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600;background:var(--sunken);white-space:nowrap;position:sticky;top:0}
+th button{font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit;background:none;border:0;padding:0;cursor:pointer}
+th button[data-dir]::after{content:attr(data-dir);color:var(--accent)}
+tbody tr:last-child td{border-bottom:0}
+.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+th.num{text-align:right}
+.muted{color:var(--ink-3)}
+.chip{display:inline-block;font-size:12px;border-radius:4px;padding:1px 7px;margin:0 4px 3px 0;white-space:nowrap;font-weight:500}
+.c-milk{background:var(--silage-soft);color:#4D5A12}
+.c-maize{background:#F6EDD9;color:#7A5410}
+.c-pet{background:var(--accent-soft);color:#17504B}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls select,.controls input[type=search]{font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:8px 10px}
+.controls input[type=search]{flex:1 1 200px}
+.check{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-2);cursor:pointer}
+.check input{accent-color:var(--accent);width:16px;height:16px}
+select:focus-visible,input:focus-visible,th button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.comp td:first-child{font-weight:600;min-width:160px}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;max-width:86ch}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:10px}
+.steps li::before{content:counter(s);font-family:var(--mono);font-size:13px;width:24px;height:24px;border-radius:50%;background:var(--sunken);color:var(--ink-2);display:grid;place-items:center}
+.src{font-size:13px;color:var(--ink-2);columns:2 320px;column-gap:28px;margin:0;padding-left:18px}
+.src li{margin-bottom:5px;break-inside:avoid}
+footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:560px){.hbar{grid-template-columns:90px 1fr 70px}}
+</style>
+
+<div class="wrap">
+  <header>
+    <a class="back" href="./">← Back to the pet business directory</a>
+    <span class="eyebrow">Market research · Bangladesh · compiled 17 Sep 2026</span>
+    <h1>Pet food &amp; silage: market research for a Bangladesh launch</h1>
+    <p>What the public data says about both markets: size, demand, prices, competitors, rules, and where to sell first. Every figure links to its source; lines marked <b>Analysis</b> are our reading of the data, not published facts.</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="#summary">Summary</a><a href="#petfood">Pet food</a><a href="#silage">Silage</a><a href="#rules">Licences &amp; duties</a><a href="#districts">Where to sell</a><a href="#next">Next steps</a><a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <!-- SUMMARY -->
+  <section id="summary">
+    <h2>Summary for the CEO</h2>
+    <div class="tiles">
+      <div class="tile p"><span class="n">৳236 cr</span><span class="l">Pet market a year, ~13% growth</span><span class="s">57% of it is food</span></div>
+      <div class="tile p"><span class="n">৳500 cr</span><span class="l">Cat food market, ৳400 cr imported</span><span class="s">90% of pets are cats</span></div>
+      <div class="tile p"><span class="n" id="t-outlets"></span><span class="l">Known pet shops &amp; vets to sell through</span><span class="s">From our directory</span></div>
+      <div class="tile g"><span class="n">2.52 cr</span><span class="l">Cattle, plus 15 lakh buffalo (2024-25)</span><span class="s">DLS</span></div>
+      <div class="tile g"><span class="n">⅓</span><span class="l">Share of cattle feed need met by green grass</span><span class="s">Fodder gap drives silage demand</span></div>
+      <div class="tile g"><span class="n">~80%</span><span class="l">Of a dairy farm's weekly cost is feed</span><span class="s">Farmer case, 2022</span></div>
+    </div>
+    <ul class="points">
+      <li><span class="tag pet">Pet food</span> Small but fast-growing, import-heavy and cat-led. Locally made cat food is new (Chonk from 2024, Oskies), so a local brand can compete on price against imports that pay 25% customs duty.</li>
+      <li><span class="tag sil">Silage</span> A much bigger volume market: 2.5 crore cattle, a chronic green-fodder shortage and rising feed costs. Buyers are price-sensitive dairy and fattening farmers concentrated in the Sirajganj–Pabna milk shed and the north.</li>
+      <li><span class="tag both">Analysis</span> The two products share licensing (both are "animal feed" under the 2010 Act) but not customers or channels. Pet food sells through city pet shops and vets; silage sells by the truckload to farms. Plan them as two sales teams under one feed licence.</li>
+      <li><span class="tag both">Analysis</span> A practical start: pet food in Dhaka and Chattogram (where most pet shops are), and a silage plant between the maize belt (Rangpur division, Chuadanga) and the milk shed (Sirajganj, Pabna, Bogura).</li>
+    </ul>
+  </section>
+
+  <!-- PET FOOD -->
+  <section id="petfood">
+    <h2><span class="tag pet">Pet food</span> Market</h2>
+    <div class="grid2">
+      <div class="box">
+        <h3>What pet owners spend on</h3>
+        <div class="bars" id="b-spend"></div>
+        <span class="sub">Share of pet spending. <a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">Nationwide survey</a></span>
+      </div>
+      <div class="box">
+        <h3>Cat food imports by origin, 2024-25</h3>
+        <div class="bars" id="b-import"></div>
+        <span class="sub">Tonnes; 32,156 t total. <a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News</a></span>
+      </div>
+    </div>
+    <ul class="points">
+      <li><b>Size:</b> ৳236 crore pet market growing ~13% a year (<a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">survey</a>); pet food and accessories about ৳200 crore, growing 20%+ (<a href="https://today.thefinancialexpress.com.bd/editorial/emerging-pet-industry-1716305651" target="_blank" rel="noopener">Financial Express</a>). The cat food market alone is put at ৳500 crore, ৳400 crore of it imported (<a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS</a>). Estimates differ by method; treat them as a range.</li>
+      <li><b>Customers:</b> 90% of pets are cats. Pet ownership rose about 170% in three years. Owners spend ৳1,000–3,000 a month per animal before vet bills.</li>
+      <li><b>Imports:</b> food mainly from Thailand, Turkey and China. Survey shares: Thailand 42%, Turkey 31%, China 12%. Prices follow the taka and freight costs; importers reported 15–40% cost rises after 2022.</li>
+      <li><b>Shelf brands:</b> budget Whiskas, Me-O, SmartHeart; mid-range Reflex, Drools, Kaniva; premium Royal Canin. Local: Chonk dry cat food at about ৳332/kg, Oskies.</li>
+      <li><span class="tag both">Analysis</span> A local dry cat food priced between budget imports and Chonk, sold through the pet shops and vets in the directory, is the clearest gap. Dog food is a small niche (10% of pets).</li>
+    </ul>
+    <h3>Competitors and channels</h3>
+    <div class="scroll"><table class="comp">
+      <thead><tr><th>Company</th><th>Role</th><th>What's known</th></tr></thead>
+      <tbody>
+        <tr><td>3S Impex BD</td><td>Importer / distributor</td><td>Since 2010; says 50+ brands and 1,000+ retailers in all 64 districts (<a href="https://3simpexbd.com/" target="_blank" rel="noopener">self-reported</a>)</td></tr>
+        <tr><td>Chonk</td><td>Local manufacturer</td><td>First local dry cat food (2024), ~৳332/kg; 245 stockist shops listed in 45 districts (<a href="https://chonkpetfood.com/retail-locations/" target="_blank" rel="noopener">store list</a>)</td></tr>
+        <tr><td>Oskies</td><td>Local manufacturer</td><td>Says it's the first DLS-licensed cat food made in Bangladesh (<a href="https://www.facebook.com/oskiesbd/" target="_blank" rel="noopener">Facebook</a>)</td></tr>
+        <tr><td>Pet Zone BD, Pet Bangla, Pet.com.bd, Aquisan</td><td>Online retailers</td><td>National delivery; 60+ brands at Pet Zone BD. Likely first buyers for a new brand.</td></tr>
+        <tr><td>Shwapno, Agora</td><td>Supermarkets</td><td>Pet care aisles in Dhaka, Chattogram, Cumilla, Sylhet</td></tr>
+        <tr><td>Katabon, Mirpur-1</td><td>Wholesale hubs</td><td>Katabon market turnover ৳30 crore+ a year (2022)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- SILAGE -->
+  <section id="silage">
+    <h2><span class="tag sil">Silage</span> Market</h2>
+    <div class="grid2">
+      <div class="box">
+        <h3>Ruminants that eat roughage, 2024-25</h3>
+        <div class="bars" id="b-herd"></div>
+        <span class="sub">Lakh head. <a href="https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-dls/2024/12/1451e8ba1bc44179b64a22ce2dfdf729.pdf" target="_blank" rel="noopener">DLS, Livestock Economy at a Glance 2024-25</a></span>
+      </div>
+      <div class="box">
+        <h3>Milk: production still below demand</h3>
+        <div class="bars" id="b-milk"></div>
+        <span class="sub">Lakh tonnes, 2015-16 to 2024-25; demand is 2024-25 at 250 ml/person/day. DLS</span>
+      </div>
+    </div>
+    <ul class="points">
+      <li><b>Herd (2024-25):</b> 251.71 lakh cattle, 15.32 lakh buffalo, 272.91 lakh goats, 39.81 lakh sheep. Livestock is 16.5% of agricultural GDP (৳91,036 crore, current prices).</li>
+      <li><b>Milk:</b> 155.38 lakh tonnes produced vs 162.33 lakh tonnes demand; 239 ml per person per day vs a 250 ml target. Output has doubled since 2015-16, so herds and feed demand keep growing.</li>
+      <li><b>Fodder gap:</b> green grass meets only about one third of cattle feed needs (<a href="https://benisonmedia.com/silage-technology-to-meet-growing-quality-cattle-feed-demand-in-bangladesh/" target="_blank" rel="noopener">Financial Express via Benison</a>). Studies put the national deficit at 40%+ of dry matter, 65% of crude protein and 60% of energy (<a href="https://www.researchgate.net/publication/351603822_Feeds_Fodder_Production_in_Bangladesh_Present_trend_availability_future_requirements_and_challenges_for_dairying_in_2030" target="_blank" rel="noopener">feeds &amp; fodder study</a>).</li>
+      <li><b>Farm economics (2022):</b> milk cost ৳48–50/kg vs selling price ৳41–50; a 17-cow farm spent ৳23–25k of ৳28–30k a week on feed. Paddy straw rose to ৳500/maund and Napier grass doubled (<a href="https://www.thedailystar.net/business/economy/news/dairy-farmers-struggle-production-costs-jump-2982386" target="_blank" rel="noopener">Daily Star</a>). The country needs about 80 lakh tonnes of animal feed a year.</li>
+      <li><b>Milk shed:</b> Pabna and Sirajganj produce about 28 lakh litres a day from 16.28 lakh cattle, roughly half of the country's milk. PRAN works with 12,000 dairy farmers in Rangpur, Natore, Pabna and Sirajganj.</li>
+      <li><b>Seasons:</b> green fodder is scarcest in the monsoon and floods; fattening for Eid-ul-Azha runs in the months before Eid, when about half of the year's cattle are slaughtered. <span class="tag both">Analysis</span> Silage stored from the maize harvest sells best in both windows.</li>
+      <li><b>Raw material:</b> maize area hit a record 6.72 lakh ha in 2024-25 (~5.7–6 million t). About 80% comes from Rangpur division, Chuadanga and a few nearby areas (<a href="https://www.thedailystar.net/business/business-plus/news/inside-food-baskets-bangladesh-3963581" target="_blank" rel="noopener">Daily Star</a>). Poultry and fish feed mills compete for the same maize.</li>
+      <li><b>Price:</b> maize silage is commonly quoted around ৳12/kg (৳600 per 50 kg bag), but we couldn't confirm this from a primary source. Get quotes from the producers below before pricing.</li>
+    </ul>
+    <h3>Competitors and support programmes</h3>
+    <div class="scroll"><table class="comp">
+      <thead><tr><th>Name</th><th>Type</th><th>What's known</th></tr></thead>
+      <tbody>
+        <tr><td>Khan's Silage (Tasman Agro)</td><td>Commercial producer</td><td>Corn silage on the market since 2016; Tasman Agro in agriculture since 1998; describes itself as one of the largest silage suppliers</td></tr>
+        <tr><td>Agrow</td><td>Commercial producer</td><td>Corn silage, 8–9% protein, 3,000 kcal/kg (<a href="http://agrow.com.bd/silage/" target="_blank" rel="noopener">agrow.com.bd</a>)</td></tr>
+        <tr><td>RP Agro Silage</td><td>Small producer, Ullapara, Sirajganj</td><td>15+ t a month, about ৳1 lakh net profit a month, sells to Pabna, Barishal and Dhaka (<a href="https://rmtp.pksf.org.bd/success-in-commercial-production-of-silage/" target="_blank" rel="noopener">PKSF RMTP</a>)</td></tr>
+        <tr><td>PRAN Dairy</td><td>Dairy processor</td><td>Supplies feed and fodder seed and trains its farmers to make their own silage; potential bulk buyer or competitor</td></tr>
+        <tr><td>Milk Vita</td><td>Largest dairy cooperative</td><td>Rooted in the Sirajganj–Pabna milk shed; its member farmers are a natural target</td></tr>
+        <tr><td>DLS fodder/silage project</td><td>Government</td><td>৳117 crore, 475 upazilas, 8,970 demo plots, 17,940 farmers trained in silage (to 2024). Upazila vet offices can introduce you to farmers.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- RULES -->
+  <section id="rules">
+    <h2>Licences &amp; import duties <span class="tag both">Both</span></h2>
+    <ul class="points">
+      <li><b>Law:</b> the Fish Feed and Animal Feed Act 2010 and the Animal Feed Rules 2013 cover processing, quality, import, export, sale and transport of animal feed (<a href="https://www.bangladeshtradeportal.gov.bd/kcfinder/upload/files/Fish%20Feed%20and%20Animal%20Feed%20Act,%202010.pdf" target="_blank" rel="noopener">Act</a>, <a href="https://www.fas.usda.gov/data/bangladesh-bangladesh-animal-feed-rules-2013" target="_blank" rel="noopener">USDA summary of the Rules</a>).</li>
+      <li><b>Licences:</b> separate licences are needed to run a feed factory, to import or export feed and ingredients, and to sell feed. Rules set nutrition standards by animal type and age. Apply through the Department of Livestock Services (<a href="https://bangladeshtradeportal.gov.bd/index.php?r=searchProcedure%2Fview1&amp;id=33" target="_blank" rel="noopener">Trade Portal procedure</a>).</li>
+      <li><b>Customs duty (CD) on imports</b> (<a href="https://nbr.gov.bd/uploads/tariff_schedule/Chapter-23.pdf" target="_blank" rel="noopener">NBR tariff, chapter 23</a>): dog or cat food for retail sale (2309.10.00) <b>25%</b>; vitamin/mineral/amino-acid premixes, probiotics for feed (2309.90.11–19) <b>5%</b>; other feed preparations (2309.90.90) <b>10%</b>; vegetable fodder materials (2308.00.00) <b>0%</b>. VAT, advance tax and other charges come on top; check the full total with a customs agent.</li>
+      <li><span class="tag both">Analysis</span> Finished imported pet food pays 25% duty while premix inputs pay 5%, which favours making pet food locally from imported premixes.</li>
+      <li><b>Other approvals to check:</b> BSTI standards and labelling for packaged products, factory trade licence, environmental clearance for a silage plant.</li>
+    </ul>
+  </section>
+
+  <!-- DISTRICTS -->
+  <section id="districts">
+    <h2>Where to sell first: all 64 districts</h2>
+    <p class="lead">Pet shops and vets come from our directory (known businesses only). <span class="chip c-milk">Milk shed</span> marks districts that sources name as major or fast-growing dairy areas; <span class="chip c-maize">Maize belt</span> marks main maize-growing districts; government vet offices are useful contacts for reaching farmers.</p>
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search district" aria-label="Search district">
+      <select id="focus" aria-label="Focus">
+        <option value="">All districts</option><option value="pet">Pet food: 10+ known pet shops</option><option value="milk">Silage: milk-shed districts</option><option value="maize">Silage: maize-belt districts</option>
+      </select>
+      <select id="div" aria-label="Division"></select>
+    </div>
+    <div class="scroll" style="max-height:620px"><table id="dt"></table></div>
+  </section>
+
+  <!-- NEXT -->
+  <section id="next">
+    <h2>What to find out next</h2>
+    <p class="lead">Public data stops here. These answers need calls and field visits:</p>
+    <ol class="steps">
+      <li><span><b>Pet shop margins and terms:</b> call 20–30 shops from the directory (Dhaka, Chattogram, Bogura, Sylhet) to learn the margin they expect, credit terms, best-selling pack sizes and price points.</span></li>
+      <li><span><b>Silage price and willingness to pay:</b> get quotes from Khan's Silage, Agrow and small producers; visit 15–20 dairy farms in Sirajganj and Pabna to ask what they pay for straw, grass and concentrate, and what they'd pay for silage delivered.</span></li>
+      <li><span><b>Maize sourcing:</b> price green maize per acre from growers in Rangpur division and Chuadanga at harvest, and transport cost to the milk shed.</span></li>
+      <li><span><b>Licences:</b> confirm the feed-factory, import and sales licences, fees and timelines with the District Livestock Office where the plant will be.</span></li>
+      <li><span><b>Import cost:</b> have a clearing agent calculate the full landed cost (duty, VAT, advance tax) for pet food premixes, packaging and finished pet food.</span></li>
+      <li><span><b>Silage handling:</b> test shelf life after opening, bag vs bale packaging, and a monsoon storage plan before scaling.</span></li>
+    </ol>
+  </section>
+
+  <section id="sources">
+    <h2>Sources</h2>
+    <ul class="src">
+      <li><a href="https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-dls/2024/12/1451e8ba1bc44179b64a22ce2dfdf729.pdf" target="_blank" rel="noopener">DLS: Livestock Economy at a Glance 2024-25</a></li>
+      <li><a href="https://www.researchgate.net/publication/408471383_Current_Status_and_Market_Dynamics_of_the_Emerging_Pet_Industry_in_Bangladesh_Insights_from_a_Nationwide_Survey_of_Pet_Owners_and_Veterinary_Clinics" target="_blank" rel="noopener">Nationwide survey of the pet industry (ResearchGate)</a></li>
+      <li><a href="https://www.tbsnews.net/features/panorama/how-pet-ownership-got-easier-urban-bangladesh-1444861" target="_blank" rel="noopener">TBS News: pet ownership in urban Bangladesh</a></li>
+      <li><a href="https://today.thefinancialexpress.com.bd/editorial/emerging-pet-industry-1716305651" target="_blank" rel="noopener">Financial Express: emerging pet industry</a></li>
+      <li><a href="https://tob.news/a-new-economy-takes-shape-around-pets-in-bangladesh/" target="_blank" rel="noopener">TOB News: a new economy around pets</a></li>
+      <li><a href="https://www.tbsnews.net/features/panorama/chonk-local-innovation-cat-food-industry-1076186" target="_blank" rel="noopener">TBS News: Chonk</a></li>
+      <li><a href="https://3simpexbd.com/" target="_blank" rel="noopener">3S Impex BD</a></li>
+      <li><a href="https://nbr.gov.bd/uploads/tariff_schedule/Chapter-23.pdf" target="_blank" rel="noopener">NBR customs tariff, chapter 23</a></li>
+      <li><a href="https://www.bangladeshtradeportal.gov.bd/kcfinder/upload/files/Fish%20Feed%20and%20Animal%20Feed%20Act,%202010.pdf" target="_blank" rel="noopener">Fish Feed and Animal Feed Act 2010</a></li>
+      <li><a href="https://www.fas.usda.gov/data/bangladesh-bangladesh-animal-feed-rules-2013" target="_blank" rel="noopener">USDA FAS: Animal Feed Rules 2013</a></li>
+      <li><a href="https://benisonmedia.com/silage-technology-to-meet-growing-quality-cattle-feed-demand-in-bangladesh/" target="_blank" rel="noopener">Benison Media / FE: silage technology and fodder gap</a></li>
+      <li><a href="https://www.researchgate.net/publication/351603822_Feeds_Fodder_Production_in_Bangladesh_Present_trend_availability_future_requirements_and_challenges_for_dairying_in_2030" target="_blank" rel="noopener">Feeds &amp; fodder production in Bangladesh (ResearchGate)</a></li>
+      <li><a href="https://www.thedailystar.net/business/economy/news/dairy-farmers-struggle-production-costs-jump-2982386" target="_blank" rel="noopener">Daily Star: dairy farmers struggle as costs jump (2022)</a></li>
+      <li><a href="https://rmtp.pksf.org.bd/success-in-commercial-production-of-silage/" target="_blank" rel="noopener">PKSF RMTP: commercial silage production</a></li>
+      <li><a href="http://agrow.com.bd/silage/" target="_blank" rel="noopener">Agrow: corn silage</a></li>
+      <li><a href="https://www.thedailystar.net/business/business-plus/news/inside-food-baskets-bangladesh-3963581" target="_blank" rel="noopener">Daily Star: inside the food baskets (maize)</a></li>
+      <li><a href="https://benisonmedia.com/bangladesh-maize-output-set-to-reach-record-6-million-tonnes/" target="_blank" rel="noopener">Benison Media: record maize output</a></li>
+      <li><a href="https://lrrd.cipav.org.co/lrrd26/10/hami26179.htm" target="_blank" rel="noopener">LRRD: private sector in Bangladesh dairy (PRAN hubs)</a></li>
+      <li><a href="https://www.researchgate.net/publication/332719504_Production_and_compositional_studies_of_milk_in_local_Pabna_cows_of_Bangladesh" target="_blank" rel="noopener">Pabna cattle and the Sirajganj–Pabna milk shed</a></li>
+      <li><a href="https://en.banglapedia.org/index.php/Maize" target="_blank" rel="noopener">Banglapedia: maize districts</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Districts_of_Bangladesh" target="_blank" rel="noopener">District population, 2022 census (Wikipedia)</a></li>
+    </ul>
+  </section>
+
+  <footer>Figures are from public sources as of September 2026 and should be checked with suppliers and officials before investment decisions.</footer>
+</div>
+
+<script>
+const D = {"districts": [{"district": "Dhaka", "division": "Dhaka", "pop": 14734701, "area": 1464, "total": 699, "reviews": 5516, "shop": 496, "vet": 155, "hotel": 32, "groom": 24, "other": 77, "gov": 7}, {"district": "Faridpur", "division": "Dhaka", "pop": 2162876, "area": 2053, "total": 16, "reviews": 75, "shop": 10, "vet": 9, "hotel": 0, "groom": 0, "other": 0, "gov": 10}, {"district": "Tangail", "division": "Dhaka", "pop": 4037608, "area": 3414, "total": 29, "reviews": 45, "shop": 12, "vet": 15, "hotel": 2, "groom": 0, "other": 1, "gov": 14}, {"district": "Gazipur", "division": "Dhaka", "pop": 5263474, "area": 1806, "total": 37, "reviews": 289, "shop": 23, "vet": 14, "hotel": 1, "groom": 1, "other": 3, "gov": 7}, {"district": "Narayanganj", "division": "Dhaka", "pop": 3909138, "area": 684, "total": 36, "reviews": 322, "shop": 22, "vet": 11, "hotel": 0, "groom": 0, "other": 6, "gov": 7}, {"district": "Kishoreganj", "division": "Dhaka", "pop": 3267630, "area": 2689, "total": 14, "reviews": 63, "shop": 3, "vet": 12, "hotel": 0, "groom": 0, "other": 0, "gov": 15}, {"district": "Narsingdi", "division": "Dhaka", "pop": 2584452, "area": 1150, "total": 16, "reviews": 81, "shop": 5, "vet": 10, "hotel": 1, "groom": 0, "other": 1, "gov": 7}, {"district": "Munshiganj", "division": "Dhaka", "pop": 1625418, "area": 1004, "total": 14, "reviews": 86, "shop": 8, "vet": 5, "hotel": 0, "groom": 1, "other": 2, "gov": 7}, {"district": "Manikganj", "division": "Dhaka", "pop": 1558024, "area": 1384, "total": 11, "reviews": 42, "shop": 7, "vet": 4, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Gopalganj", "division": "Dhaka", "pop": 1295053, "area": 1469, "total": 4, "reviews": 2, "shop": 2, "vet": 1, "hotel": 0, "groom": 0, "other": 1, "gov": 6}, {"district": "Shariatpur", "division": "Dhaka", "pop": 1294561, "area": 1174, "total": 11, "reviews": 95, "shop": 6, "vet": 6, "hotel": 0, "groom": 0, "other": 0, "gov": 7}, {"district": "Madaripur", "division": "Dhaka", "pop": 1293027, "area": 1125, "total": 11, "reviews": 11, "shop": 7, "vet": 3, "hotel": 0, "groom": 0, "other": 2, "gov": 5}, {"district": "Rajbari", "division": "Dhaka", "pop": 1189821, "area": 1092, "total": 15, "reviews": 47, "shop": 9, "vet": 6, "hotel": 0, "groom": 0, "other": 1, "gov": 7}, {"district": "Chattogram", "division": "Chattogram", "pop": 9169464, "area": 5283, "total": 98, "reviews": 951, "shop": 53, "vet": 27, "hotel": 4, "groom": 4, "other": 18, "gov": 18}, {"district": "Cumilla", "division": "Chattogram", "pop": 6212216, "area": 3146, "total": 21, "reviews": 109, "shop": 9, "vet": 11, "hotel": 0, "groom": 0, "other": 5, "gov": 21}, {"district": "Noakhali", "division": "Chattogram", "pop": 3625252, "area": 3686, "total": 15, "reviews": 165, "shop": 8, "vet": 8, "hotel": 0, "groom": 0, "other": 1, "gov": 11}, {"district": "Rangamati", "division": "Chattogram", "pop": 647587, "area": 6116, "total": 3, "reviews": 6, "shop": 1, "vet": 2, "hotel": 0, "groom": 0, "other": 0, "gov": 11}, {"district": "Bandarban", "division": "Chattogram", "pop": 481109, "area": 4479, "total": 3, "reviews": 6, "shop": 1, "vet": 2, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Khagrachhari", "division": "Chattogram", "pop": 714119, "area": 2749, "total": 3, "reviews": 3, "shop": 2, "vet": 1, "hotel": 0, "groom": 0, "other": 0, "gov": 9}, {"district": "Brahmanbaria", "division": "Chattogram", "pop": 3306559, "area": 1881, "total": 15, "reviews": 156, "shop": 6, "vet": 9, "hotel": 1, "groom": 0, "other": 1, "gov": 11}, {"district": "Cox's Bazar", "division": "Chattogram", "pop": 2823265, "area": 2492, "total": 20, "reviews": 116, "shop": 10, "vet": 12, "hotel": 1, "groom": 2, "other": 1, "gov": 9}, {"district": "Chandpur", "division": "Chattogram", "pop": 2635748, "area": 1645, "total": 9, "reviews": 59, "shop": 6, "vet": 3, "hotel": 0, "groom": 0, "other": 1, "gov": 9}, {"district": "Lakshmipur", "division": "Chattogram", "pop": 1938111, "area": 1440, "total": 11, "reviews": 20, "shop": 3, "vet": 5, "hotel": 1, "groom": 0, "other": 2, "gov": 5}, {"district": "Feni", "division": "Chattogram", "pop": 1648896, "area": 990, "total": 8, "reviews": 23, "shop": 6, "vet": 2, "hotel": 0, "groom": 0, "other": 2, "gov": 7}, {"district": "Rajshahi", "division": "Rajshahi", "pop": 2915013, "area": 2425, "total": 28, "reviews": 414, "shop": 18, "vet": 11, "hotel": 3, "groom": 2, "other": 4, "gov": 11}, {"district": "Bogura", "division": "Rajshahi", "pop": 3734300, "area": 2899, "total": 42, "reviews": 184, "shop": 30, "vet": 14, "hotel": 3, "groom": 1, "other": 2, "gov": 16}, {"district": "Pabna", "division": "Rajshahi", "pop": 2909622, "area": 2376, "total": 23, "reviews": 70, "shop": 13, "vet": 8, "hotel": 1, "groom": 0, "other": 1, "gov": 10}, {"district": "Joypurhat", "division": "Rajshahi", "pop": 956430, "area": 1012, "total": 13, "reviews": 169, "shop": 5, "vet": 9, "hotel": 0, "groom": 0, "other": 0, "gov": 6}, {"district": "Sirajganj", "division": "Rajshahi", "pop": 3357708, "area": 2402, "total": 22, "reviews": 77, "shop": 11, "vet": 12, "hotel": 0, "groom": 0, "other": 1, "gov": 11}, {"district": "Naogaon", "division": "Rajshahi", "pop": 2784598, "area": 3436, "total": 15, "reviews": 79, "shop": 8, "vet": 8, "hotel": 0, "groom": 0, "other": 0, "gov": 13}, {"district": "Natore", "division": "Rajshahi", "pop": 1859921, "area": 1900, "total": 12, "reviews": 79, "shop": 6, "vet": 5, "hotel": 0, "groom": 0, "other": 1, "gov": 8}, {"district": "Chapai Nawabganj", "division": "Rajshahi", "pop": 1835527, "area": 1703, "total": 12, "reviews": 37, "shop": 8, "vet": 4, "hotel": 0, "groom": 0, "other": 0, "gov": 7}, {"district": "Jashore", "division": "Khulna", "pop": 3076849, "area": 2607, "total": 22, "reviews": 110, "shop": 12, "vet": 11, "hotel": 1, "groom": 0, "other": 3, "gov": 9}, {"district": "Khulna", "division": "Khulna", "pop": 2613385, "area": 4394, "total": 33, "reviews": 313, "shop": 22, "vet": 15, "hotel": 2, "groom": 2, "other": 2, "gov": 10}, {"district": "Kushtia", "division": "Khulna", "pop": 2149692, "area": 1609, "total": 15, "reviews": 36, "shop": 10, "vet": 4, "hotel": 0, "groom": 0, "other": 2, "gov": 7}, {"district": "Satkhira", "division": "Khulna", "pop": 2196581, "area": 3817, "total": 19, "reviews": 32, "shop": 10, "vet": 9, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Jhenaidah", "division": "Khulna", "pop": 1771304, "area": 1965, "total": 15, "reviews": 40, "shop": 5, "vet": 8, "hotel": 0, "groom": 1, "other": 1, "gov": 8}, {"district": "Bagerhat", "division": "Khulna", "pop": 1613079, "area": 3959, "total": 13, "reviews": 28, "shop": 9, "vet": 5, "hotel": 0, "groom": 0, "other": 0, "gov": 10}, {"district": "Chuadanga", "division": "Khulna", "pop": 1234066, "area": 1174, "total": 5, "reviews": 31, "shop": 3, "vet": 3, "hotel": 0, "groom": 0, "other": 0, "gov": 5}, {"district": "Magura", "division": "Khulna", "pop": 1033115, "area": 1039, "total": 5, "reviews": 11, "shop": 2, "vet": 3, "hotel": 0, "groom": 1, "other": 0, "gov": 5}, {"district": "Narail", "division": "Khulna", "pop": 788673, "area": 968, "total": 8, "reviews": 17, "shop": 6, "vet": 2, "hotel": 0, "groom": 0, "other": 0, "gov": 4}, {"district": "Meherpur", "division": "Khulna", "pop": 705356, "area": 742, "total": 6, "reviews": 13, "shop": 1, "vet": 5, "hotel": 0, "groom": 0, "other": 0, "gov": 4}, {"district": "Barishal", "division": "Barishal", "pop": 2570450, "area": 2785, "total": 31, "reviews": 261, "shop": 15, "vet": 15, "hotel": 0, "groom": 1, "other": 1, "gov": 11}, {"district": "Patuakhali", "division": "Barishal", "pop": 1727254, "area": 3221, "total": 9, "reviews": 22, "shop": 4, "vet": 4, "hotel": 0, "groom": 0, "other": 1, "gov": 9}, {"district": "Bhola", "division": "Barishal", "pop": 1932514, "area": 3403, "total": 11, "reviews": 71, "shop": 3, "vet": 8, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Pirojpur", "division": "Barishal", "pop": 1198193, "area": 1278, "total": 6, "reviews": 1, "shop": 3, "vet": 3, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Barguna", "division": "Barishal", "pop": 1010530, "area": 1831, "total": 12, "reviews": 47, "shop": 8, "vet": 4, "hotel": 0, "groom": 0, "other": 0, "gov": 7}, {"district": "Jhalokati", "division": "Barishal", "pop": 661161, "area": 707, "total": 4, "reviews": 20, "shop": 3, "vet": 1, "hotel": 0, "groom": 0, "other": 0, "gov": 5}, {"district": "Sylhet", "division": "Sylhet", "pop": 3857037, "area": 3452, "total": 30, "reviews": 133, "shop": 15, "vet": 17, "hotel": 1, "groom": 2, "other": 2, "gov": 14}, {"district": "Sunamganj", "division": "Sylhet", "pop": 2695495, "area": 3747, "total": 6, "reviews": 6, "shop": 4, "vet": 2, "hotel": 0, "groom": 0, "other": 0, "gov": 12}, {"district": "Habiganj", "division": "Sylhet", "pop": 2358886, "area": 2637, "total": 11, "reviews": 63, "shop": 5, "vet": 6, "hotel": 1, "groom": 1, "other": 0, "gov": 10}, {"district": "Moulvibazar", "division": "Sylhet", "pop": 2123445, "area": 2799, "total": 16, "reviews": 121, "shop": 10, "vet": 6, "hotel": 0, "groom": 0, "other": 2, "gov": 8}, {"district": "Rangpur", "division": "Rangpur", "pop": 3169615, "area": 2401, "total": 24, "reviews": 354, "shop": 16, "vet": 12, "hotel": 0, "groom": 0, "other": 0, "gov": 9}, {"district": "Nilphamari", "division": "Rangpur", "pop": 3092567, "area": 1547, "total": 14, "reviews": 87, "shop": 7, "vet": 10, "hotel": 0, "groom": 0, "other": 0, "gov": 7}, {"district": "Dinajpur", "division": "Rangpur", "pop": 3315238, "area": 3444, "total": 28, "reviews": 238, "shop": 14, "vet": 15, "hotel": 1, "groom": 1, "other": 2, "gov": 14}, {"district": "Thakurgaon", "division": "Rangpur", "pop": 1533894, "area": 1781, "total": 10, "reviews": 31, "shop": 7, "vet": 3, "hotel": 0, "groom": 0, "other": 1, "gov": 6}, {"district": "Gaibandha", "division": "Rangpur", "pop": 2562232, "area": 2115, "total": 5, "reviews": 6, "shop": 4, "vet": 1, "hotel": 0, "groom": 0, "other": 0, "gov": 8}, {"district": "Kurigram", "division": "Rangpur", "pop": 2329161, "area": 2245, "total": 5, "reviews": 77, "shop": 2, "vet": 3, "hotel": 1, "groom": 0, "other": 0, "gov": 10}, {"district": "Lalmonirhat", "division": "Rangpur", "pop": 1428406, "area": 1247, "total": 9, "reviews": 20, "shop": 4, "vet": 5, "hotel": 0, "groom": 0, "other": 0, "gov": 7}, {"district": "Panchagarh", "division": "Rangpur", "pop": 1179843, "area": 1405, "total": 7, "reviews": 14, "shop": 5, "vet": 5, "hotel": 0, "groom": 0, "other": 0, "gov": 6}, {"district": "Mymensingh", "division": "Mymensingh", "pop": 5899052, "area": 4395, "total": 26, "reviews": 558, "shop": 14, "vet": 16, "hotel": 0, "groom": 1, "other": 0, "gov": 14}, {"district": "Jamalpur", "division": "Mymensingh", "pop": 2499737, "area": 2115, "total": 12, "reviews": 56, "shop": 9, "vet": 3, "hotel": 0, "groom": 0, "other": 1, "gov": 8}, {"district": "Netrokona", "division": "Mymensingh", "pop": 2324856, "area": 2794, "total": 10, "reviews": 59, "shop": 5, "vet": 6, "hotel": 0, "groom": 0, "other": 0, "gov": 11}, {"district": "Sherpur", "division": "Mymensingh", "pop": 1501853, "area": 1365, "total": 14, "reviews": 127, "shop": 9, "vet": 6, "hotel": 0, "groom": 0, "other": 1, "gov": 7}]};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => n.toLocaleString("en-US");
+function bars(id, items, unit, color){
+  const max = Math.max(...items.map(i => i[1]));
+  $(id).innerHTML = items.map(([l,v,c]) => `<div class="hbar"><span>${esc(l)}</span><span class="track"><i style="width:${v/max*100}%;background:${c||color}"></i></span><span class="v">${unit(v)}</span></div>`).join("");
+}
+bars("b-spend", [["Pet food",57],["Medicines",19],["Cat litter",16],["Vaccines",7],["Other",1]], v => v+"%", "var(--accent)");
+bars("b-import", [["China",17738],["Thailand",7418],["Turkey",6740],["Others",260]], fmt, "var(--accent)");
+bars("b-herd", [["Goats",272.91],["Cattle",251.71],["Sheep",39.81],["Buffalo",15.32]], v => v.toFixed(1), "var(--silage)");
+bars("b-milk", [["2015-16",72.75],["2019-20",106.80],["2022-23",140.68],["2024-25",155.38],["Demand 24-25",162.33,"#B9C58A"]], v => v.toFixed(1), "var(--silage)");
+$("t-outlets").textContent = fmt(D.districts.reduce((s,d) => s + d.total, 0));
+
+const MILK = new Set(["Sirajganj","Pabna","Bogura","Rangpur","Natore","Satkhira","Munshiganj"]);
+const MAIZE = new Set(["Dinajpur","Thakurgaon","Rangpur","Chuadanga","Meherpur","Tangail","Mymensingh","Khagrachhari"]);
+const DIVS = [...new Set(D.districts.map(d => d.division))];
+$("div").innerHTML = `<option value="">All divisions</option>` + DIVS.map(d => `<option>${esc(d)}</option>`).join("");
+const st = {q:"", focus:"", div:"", sort:"shop", dir:-1};
+const COLS = [["district","District"],["division","Division"],["pop","Population"],["shop","Pet shops / food"],["vet","Private vets"],["gov","Govt vet offices"],["tags","Silage signals"]];
+function render(){
+  let list = D.districts.filter(d => (!st.q || d.district.toLowerCase().includes(st.q)) && (!st.div || d.division === st.div) &&
+    (!st.focus || (st.focus === "pet" && d.shop >= 10) || (st.focus === "milk" && MILK.has(d.district)) || (st.focus === "maize" && MAIZE.has(d.district))));
+  const k = st.sort;
+  list.sort((a,b) => { const x = k === "tags" ? (MILK.has(a.district)*2 + MAIZE.has(a.district)) : a[k], y = k === "tags" ? (MILK.has(b.district)*2 + MAIZE.has(b.district)) : b[k];
+    return (typeof x === "string" ? x.localeCompare(y) : (x > y) - (x < y)) * st.dir || a.district.localeCompare(b.district); });
+  $("dt").innerHTML = `<thead><tr>${COLS.map(([c,l]) => `<th class="${["pop","shop","vet","gov"].includes(c)?"num":""}"><button type="button" data-k="${c}" ${st.sort===c?`data-dir="${st.dir<0?" ↓":" ↑"}"`:""}>${l}</button></th>`).join("")}</tr></thead><tbody>` +
+    list.map(d => `<tr><td><b>${esc(d.district)}</b></td><td class="muted">${esc(d.division)}</td><td class="num">${(d.pop/1e6).toFixed(2)}M</td><td class="num">${d.shop}</td><td class="num">${d.vet}</td><td class="num">${d.gov}</td><td>${MILK.has(d.district)?'<span class="chip c-milk">Milk shed</span>':""}${MAIZE.has(d.district)?'<span class="chip c-maize">Maize belt</span>':""}</td></tr>`).join("") + `</tbody>`;
+  $("dt").querySelectorAll("th button").forEach(b => b.onclick = () => { if (st.sort === b.dataset.k) st.dir *= -1; else { st.sort = b.dataset.k; st.dir = ["district","division"].includes(b.dataset.k) ? 1 : -1; } render(); });
+}
+$("q").oninput = e => { st.q = e.target.value.trim().toLowerCase(); render(); };
+$("focus").onchange = e => { st.focus = e.target.value; render(); };
+$("div").onchange = e => { st.div = e.target.value; render(); };
+render();
+</script>
+
+</body>
+</html>

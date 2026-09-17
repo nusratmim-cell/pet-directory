@@ -149,6 +149,17 @@ page = tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</"
     '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">\n'
     '</head>\n<body>\n' + page + '\n</body>\n</html>\n')
 
+# Research page (pet food & silage), standalone for static hosting
+def standalone(body, desc):
+    return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            f'<meta name="description" content="{desc}">\n'
+            '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">\n'
+            '</head>\n<body>\n' + body + '\n</body>\n</html>\n')
+rtpl = (ROOT / "data" / "research_template.html").read_text()
+(ROOT / "research.html").write_text(standalone(rtpl.replace("__DATA__", json.dumps(dict(districts=dists), ensure_ascii=False)),
+    "Market research for pet food and silage in Bangladesh: market size, competitors, licences, duties and where to sell."))
+
 # Excel
 L = {"shop": "Pet shop / food", "vet": "Pet hospital / vet (private)", "hotel": "Pet hotel / boarding", "groom": "Grooming", "other": "Other", "gov": "Govt vet hospital / livestock office"}
 wb = openpyxl.Workbook(); ws = wb.active; ws.title = "Directory"
