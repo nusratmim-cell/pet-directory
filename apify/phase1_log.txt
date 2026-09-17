@@ -51,3 +51,17 @@ Starting run: 126 searches x up to 8 places (cap $4.89)
   RUNNING  charged so far $3.83
   RUNNING  charged so far $3.83
   RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
+  RUNNING  charged so far $3.83
